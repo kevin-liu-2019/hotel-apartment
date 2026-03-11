@@ -17,6 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -46,7 +48,7 @@ public class UserServiceImpl implements UserService {
             user.setOpenid(openid);
             user.setUnionid(sessionResult.getUnionid());
             user.setStatus(1);
-            user.setNickname("用户" + openid.substring(openid.length() - 6));
+            user.setNickname("用户" + (100000 + ThreadLocalRandom.current().nextInt(900000)));
             userMapper.insert(user);
         }
 

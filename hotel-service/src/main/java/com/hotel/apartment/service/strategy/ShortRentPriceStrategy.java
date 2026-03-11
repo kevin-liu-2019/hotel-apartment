@@ -11,16 +11,17 @@ import java.time.temporal.ChronoUnit;
 @Component("SHORT_RENT")
 public class ShortRentPriceStrategy implements PriceStrategy {
 
+    private static final int DAYS_PER_MONTH = 30;
+
     @Override
     public BigDecimal calculate(BigDecimal monthlyPrice, LocalDate startDate, LocalDate endDate) {
         if (startDate == null || endDate == null || !endDate.isAfter(startDate)) {
             throw new BusinessException(ResultCode.PARAM_ERROR, "日期参数无效");
         }
         long days = ChronoUnit.DAYS.between(startDate, endDate);
-        // Daily price: monthly price / 30, minimum 1 month charge
-        BigDecimal dailyPrice = monthlyPrice.divide(BigDecimal.valueOf(30), 2, java.math.RoundingMode.HALF_UP);
+        BigDecimal dailyPrice = monthlyPrice.divide(BigDecimal.valueOf(DAYS_PER_MONTH), 2, java.math.RoundingMode.HALF_UP);
         BigDecimal totalPrice = dailyPrice.multiply(BigDecimal.valueOf(days));
-        // If less than 1 month, charge at least 1 month
+        // Short rent is billed at minimum one month's price regardless of actual days
         if (totalPrice.compareTo(monthlyPrice) < 0) {
             return monthlyPrice;
         }
