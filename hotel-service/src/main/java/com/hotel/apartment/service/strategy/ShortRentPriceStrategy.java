@@ -21,10 +21,7 @@ public class ShortRentPriceStrategy implements PriceStrategy {
         long days = ChronoUnit.DAYS.between(startDate, endDate);
         BigDecimal dailyPrice = monthlyPrice.divide(BigDecimal.valueOf(DAYS_PER_MONTH), 2, java.math.RoundingMode.HALF_UP);
         BigDecimal totalPrice = dailyPrice.multiply(BigDecimal.valueOf(days));
-        // Short rent is billed at minimum one month's price regardless of actual days
-        if (totalPrice.compareTo(monthlyPrice) < 0) {
-            return monthlyPrice;
-        }
-        return totalPrice;
+        // Enforce minimum charge of one full month when calculated daily total is less than monthly price
+        return totalPrice.compareTo(monthlyPrice) < 0 ? monthlyPrice : totalPrice;
     }
 }
