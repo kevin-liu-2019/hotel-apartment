@@ -13,6 +13,8 @@
         <module>hotel-common</module>
         <module>hotel-dal</module>
         <module>hotel-service</module>
+        <module>hotel-api</module>
+        <module>hotel-admin</module>
     </modules>
 
     <properties>
@@ -50,6 +52,11 @@
             <dependency>
                 <groupId>com.hotel.apartment</groupId>
                 <artifactId>hotel-dal</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hotel.apartment</groupId>
+                <artifactId>hotel-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
