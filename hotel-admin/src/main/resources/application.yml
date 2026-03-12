@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/hotel_apartment?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
-    password: password
+    password: Abc12345
     driver-class-name: com.mysql.cj.jdbc.Driver
   data:
     redis:
@@ -37,6 +37,11 @@ mybatis-plus:
 jwt:
   secret: hotel-apartment-secret-key-must-be-at-least-256-bits-long-for-hs256
   expiration: 28800000
+
+wx:
+  miniapp:
+    appid: YOUR_APPID
+    secret: YOUR_SECRET
 
 knife4j:
   enable: true
