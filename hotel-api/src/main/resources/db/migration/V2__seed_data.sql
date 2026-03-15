@@ -7,15 +7,15 @@
 -- ── 管理员 ──────────────────────────────────────────────────
 -- 超级管理员  用户名: admin  密码: admin123  (BCrypt 10轮)
 INSERT IGNORE INTO `t_admin` (`id`, `username`, `password`, `nickname`, `role`, `hotel_id`, `status`)
-VALUES (1, 'admin', '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi', '超级管理员', 'SUPER_ADMIN', NULL, 1);
+VALUES (1, 'admin', '$2a$10$6OerBScVv6M1JdPi.kafZeCcd/JGnffzdWeMfGBZJ9JGacykQzMG.', '超级管理员', 'SUPER_ADMIN', NULL, 1);
 
 -- 市中心店酒店管理员  用户名: admin_center  密码: admin123
 INSERT IGNORE INTO `t_admin` (`id`, `username`, `password`, `nickname`, `role`, `hotel_id`, `status`)
-VALUES (2, 'admin_center', '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi', '市中心店管理员', 'ADMIN', 1, 1);
+VALUES (2, 'admin_center', '$2a$10$6OerBScVv6M1JdPi.kafZeCcd/JGnffzdWeMfGBZJ9JGacykQzMG.', '市中心店管理员', 'ADMIN', 1, 1);
 
 -- 望京店酒店管理员  用户名: admin_wangjing  密码: admin123
 INSERT IGNORE INTO `t_admin` (`id`, `username`, `password`, `nickname`, `role`, `hotel_id`, `status`)
-VALUES (3, 'admin_wangjing', '$2a$10$N.zmdr9k7uOCQb376NoUnuTJ8iAt6Z5EHsM8lE9lBOsl7iKTVKIUi', '望京店管理员', 'ADMIN', 2, 1);
+VALUES (3, 'admin_wangjing', '$2a$10$6OerBScVv6M1JdPi.kafZeCcd/JGnffzdWeMfGBZJ9JGacykQzMG.', '望京店管理员', 'ADMIN', 2, 1);
 
 -- ── 酒店 ──────────────────────────────────────────────────────
 INSERT IGNORE INTO `t_hotel`
