@@ -1,0 +1,62 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: hotel-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotel_apartment?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+wx:
+  miniapp:
+    appid: YOUR_APPID
+    secret: YOUR_SECRET
+  pay:
+    appId: YOUR_PAY_APPID
+    mchId: YOUR_MCH_ID
+    apiV3Key: YOUR_API_V3_KEY
+    privateKeyPath: classpath:wx/apiclient_key.pem
+    privateCertPath: classpath:wx/apiclient_cert.pem
+
+jwt:
+  secret: hotel-apartment-secret-key-must-be-at-least-256-bits-long-for-hs256
+  expiration: 604800000
+
+knife4j:
+  enable: true
+  openapi:
+    title: 酒店公寓小程序 API
+    description: 酒店公寓小程序接口文档
+    version: 1.0.0
+
+logging:
+  level:
+    com.hotel.apartment: debug

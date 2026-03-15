@@ -1,0 +1,84 @@
+.order-confirm-page {
+  background: #f5f5f5;
+  min-height: 100vh;
+  padding-bottom: 160px;
+}
+
+.card {
+  background: #fff;
+  margin: 20px;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.section-title {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f5f5f5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.info-label {
+  font-size: 26px;
+  color: #666;
+}
+
+.info-value {
+  font-size: 26px;
+  color: #333;
+}
+
+.total-label {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+}
+
+.total-price {
+  font-size: 40px;
+  color: #f44336;
+  font-weight: bold;
+}
+
+.submit-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 30px;
+  background: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+}
+
+.submit-btn {
+  display: block;
+  text-align: center;
+  background: #1a73e8;
+  color: #fff;
+  font-size: 32px;
+  padding: 24px;
+  border-radius: 50px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 28px;
+  color: #999;
+}
